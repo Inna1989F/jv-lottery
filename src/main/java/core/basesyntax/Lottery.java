@@ -1,11 +1,17 @@
+
 package core.basesyntax;
 
 import java.util.Random;
 
 public class Lottery {
+    private static final int MAX_NUMBER = 100;
+
+    private final ColorSupplier colorSupplier = new ColorSupplier();
+    private final Random random = new Random();
+
     public Ball getRandomBall() {
-        int number = new Random().nextInt(101);
-        BallColor color = ColorSupplier.getRandomColor();
+        int number = random.nextInt(MAX_NUMBER + 1);
+        BallColor color = colorSupplier.getRandomBall();
         return new Ball(number, color);
     }
 }
